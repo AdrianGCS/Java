@@ -9,8 +9,8 @@ public class Proceso extends Thread {
     public Proceso(String msg,String nombre)
     {
 
-    super(msg);
-    this.nombre = nombre;
+    super(msg);//Obtiene el nombre que le dimos en el Main
+    this.nombre = nombre;//Obtiene la String nombre que le pasamos en el Main
 
     }
     public void run()
@@ -19,7 +19,7 @@ public class Proceso extends Thread {
             System.out.println(this.getName() +nombre);
             if (nombre=="Paco" && i==10) {
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(1000); //para el Hilo durante 1 segundo
                     }catch (InterruptedException e){}
 
 
