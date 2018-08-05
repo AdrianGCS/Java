@@ -1,5 +1,9 @@
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
+import javazoom.jl.decoder.JavaLayerException;
+import javazoom.jl.player.Player;
 
 
 public class Proceso extends Thread {
@@ -19,7 +23,8 @@ public class Proceso extends Thread {
             System.out.println(this.getName() +nombre);
             if (nombre=="Paco" && i==10) {
                 try {
-                    Thread.sleep(10000); //para el Hilo durante 1 segundo
+                    Thread.sleep(100); //para el Hilo durante 1 segundo
+                    Sonido();
                     }catch (InterruptedException e){}
 
 
@@ -31,4 +36,14 @@ public class Proceso extends Thread {
     {
         System.out.println("El Tiempo que tardamos en realizar la tarea fue " +Inicio);
     }
+    public void Sonido(){
+        try {
+
+            Player apl = new Player(new FileInputStream(
+                    "src/iphone-notificacion.mp3"));
+            apl.play();
+        }catch (FileNotFoundException | JavaLayerException e){}
+    }
+
+
 }
