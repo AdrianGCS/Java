@@ -30,7 +30,7 @@ public class Proceso extends Thread {
 
             }
         }
-        return (int)(System.currentTimeMillis()-Inicio)/1000;
+        return (int)(System.currentTimeMillis()-Inicio)/1000; //La idea es que al terminar el Hilo pase al Main cuanto a tardado
     }
     public void TiempoEstimado(int Inicio)
     {
@@ -40,8 +40,10 @@ public class Proceso extends Thread {
         try {
 
             Player apl = new Player(new FileInputStream(
-                    "src/iphone-notificacion.mp3"));
-            apl.play();
+                    "src/iphone-notificacion.mp3"));//le indicamos que sonido queremos que reproduzca
+            apl.play();//Iniciamos la reproducion del sonido
+
+            //Hay que mejorarlo para que pueda parar, actualmente solo para al terminar el sonido
         }catch (FileNotFoundException | JavaLayerException e){}
     }
 
